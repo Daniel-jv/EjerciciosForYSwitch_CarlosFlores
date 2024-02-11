@@ -18,40 +18,162 @@ public class EjerciciosForYSwitch_CarlosFlores {
             int op = leer.nextInt();
             switch(op){
                 
-                case 1:{
+                case 1:{/*
+                    En el ejemplo, 0 cuenta como par, por lo tanto lo deje como par
+                    */
                     System.out.println("\n---¿Cuántos números pares e impares hay entre este rango?");
+                    System.out.print("Ingrese un numero: ");
+                    int N = leer.nextInt();
+                    int contP = 0;
+                    int contI = 0;
+                    for (int i = 0; i <= N; i++) {
+                        if(i % 2  == 0){
+                            contP++; 
+                        }else{
+                            contI++;
+                        }
+                    }
+                    System.out.print("\nEntre 0 y "+N+" existen "+contP+" numeros pares y estos son: ");
+                    int y = 0;
+                    for (int i = 0; i <= N; i++) {
+                        if(i % 2  == 0){
+                            System.out.print(i);
+                            if(y < contP-1){
+                                System.out.print(",");
+                            }
+                            y++;
+                        }
+                    }
+                    System.out.print("\nEntre 0 y "+N+" existen "+contI+" numeros impares y estos son: ");
+                    int x = 0;
+                    for (int i = 0; i <= N; i++) {
+                        if(i % 2  != 0){
+                            System.out.print(i);
+                            if(x < contI-1){
+                                System.out.print(",");
+                            }
+                            x++;
+                        }
+                    }
+                    System.out.println("\n");
+                    break;
                 }//fin case 1
                 
                 case 2:{
                     System.out.println("\n---Triángulos y más Triángulos");
                     int op_intern = 0;
-                    while(){
+                    while(op_intern < 1 || op_intern > 3){
                         System.out.println("---SUBMENU");
                         System.out.println("1)Triangulo equilatero\n2)Triangulo rectangulo\n3)Salir");
                         op_intern = leer.nextInt();
-                    sw
+                        if(op_intern < 1 || op_intern > 3){
+                            System.out.println("Opcion no valida, intente de nuevo.");
+                        }
+                    }
+                    switch(op_intern){
+                        
+                        case 1:{
+                            System.out.println("---Triangulo equilatero");
+                            System.out.print("Ingrese la altura:");
+                            int alt = leer.nextInt();
+                            int altern = alt;
+                            for (int i = alt; i > 0; i--) {
+                                int esp = 0;
+                                for (int j = 0; j < alt;) {
+                                    if(esp < altern/2){
+                                        System.out.print(" ");
+                                        esp++;
+                                    }else{
+                                        System.out.print("O");
+                                        j++;
+                                    }
+                                }
+                                altern--;
+                                System.out.println();
+                            }
+                            break;
+                        }
+                        
+                        case 2:{
+                            System.out.println("---Triangulo rectangulo");
+                            System.out.print("Ingrese la altura:");
+                            int alt = leer.nextInt();
+                            int limit = 1;
+                            for (int i = 0; i < alt; i++) {
+                                for (int j = 0; j < limit; j++) {
+                                    System.out.print("O");
+                                }
+                                limit++;
+                                System.out.println();
+                            }
+                            break;
+                        }
+                        
+                        case 3:{
+                            System.out.println("Salio del submenu, nos vemos");
+                            break;
+                        }
+                        
+                    }
+                    break;
                 }//fin case 2
                 
                 case 3:{
                     System.out.println("\n---Anita lava la tina");
+                    System.out.print("Ingrese una palabra u oracion:");
+                    leer.nextLine();
+                    String cad = leer.nextLine();
+                    cad = cad.toLowerCase();
+                    String no_esp = "";
+                    String veri = "";
+                    for (int i = 0; i < cad.length();i++) {
+                        if(cad.charAt(i) != ' '){
+                            no_esp = no_esp + cad.charAt(i);
+                        }
+                    }
+                    for (int i = cad.length(); i > 0;i--) {
+                        if(cad.charAt(i-1) != ' '){
+                            veri = veri + cad.charAt(i-1);
+                        }
+                    }
+                    veri.toLowerCase();
+                    boolean var = true;
+                    for (int i = 0; i < no_esp.length(); i++) {
+                        if(no_esp.charAt(i)!=veri.charAt(i)){
+                            var = false;
+                        }
+                    }
+                    System.out.println(no_esp);
+                    System.out.println(veri);
+                    if(var){
+                        System.out.println("La palabra/oracion es palíndroma.");
+                    }else{
+                        System.out.println("La palabra/oracion no es palíndroma.");
+                    }
+                    System.out.println();
+                    break;
                 }//fin case 3
                 
                 case 4:{
                     System.out.println("\n---Codigos secretos");
+                    break;
                 }//fin case 4
                 
                 case 5:{
                     System.out.println("\nSalio del programa, nos vemos.");
                     ok = false;
+                    break;
                 }//fin case 5
                 
                 default:{
                     System.out.println("\nOpcion no valida");
+                    break;
                 }//fin default
                 
             }//fin switch
 
-        }while(true);
+        }while(true);//fin while
+        
     }//fin main
     
 }//fin class
