@@ -76,19 +76,18 @@ public class EjerciciosForYSwitch_CarlosFlores {
                             System.out.println("---Triangulo equilatero");
                             System.out.print("Ingrese la altura:");
                             int alt = leer.nextInt();
-                            int altern = alt;
-                            for (int i = alt; i > 0; i--) {
-                                int esp = 0;
-                                for (int j = 0; j < alt;) {
-                                    if(esp < altern/2){
-                                        System.out.print(" ");
-                                        esp++;
-                                    }else{
-                                        System.out.print("O");
-                                        j++;
-                                    }
+                            int colum = alt-1;
+                            int med = 1;
+                            for (int i = 0; i < alt; i++) {
+                                for (int j = 0; j < colum; j++) {
+                                    System.out.print(" ");
+                                    
                                 }
-                                altern--;
+                                colum--;
+                                for (int j = 0; j < med; j++) {
+                                    System.out.print("X");
+                                }
+                                med=med+2;
                                 System.out.println();
                             }
                             break;
@@ -101,7 +100,7 @@ public class EjerciciosForYSwitch_CarlosFlores {
                             int limit = 1;
                             for (int i = 0; i < alt; i++) {
                                 for (int j = 0; j < limit; j++) {
-                                    System.out.print("O");
+                                    System.out.print("X");
                                 }
                                 limit++;
                                 System.out.println();
