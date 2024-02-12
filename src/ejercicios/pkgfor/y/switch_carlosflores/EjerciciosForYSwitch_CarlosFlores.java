@@ -32,10 +32,13 @@ public class EjerciciosForYSwitch_CarlosFlores {
                         }else{
                             contI++;
                         }
-                    }
+                    }//for contador
                     System.out.print("\nEntre 0 y "+N+" existen "+contP+" numeros pares y estos son: ");
                     int y = 0;
                     for (int i = 0; i <= N; i++) {
+                        if(i % 20 == 0 && i != 0){
+                            System.out.print("\n                                                   ");
+                        }
                         if(i % 2  == 0){
                             System.out.print(i);
                             if(y < contP-1){
@@ -43,10 +46,13 @@ public class EjerciciosForYSwitch_CarlosFlores {
                             }
                             y++;
                         }
-                    }
-                    System.out.print("\nEntre 0 y "+N+" existen "+contI+" numeros impares y estos son: ");
+                    }//for pares
+                    System.out.print("\n\nEntre 0 y "+N+" existen "+contI+" numeros impares y estos son: ");
                     int x = 0;
                     for (int i = 0; i <= N; i++) {
+                        if(i % 20 == 0 && i != 0){
+                            System.out.print("\n                                                     ");
+                        }
                         if(i % 2  != 0){
                             System.out.print(i);
                             if(x < contI-1){
@@ -54,7 +60,7 @@ public class EjerciciosForYSwitch_CarlosFlores {
                             }
                             x++;
                         }
-                    }
+                    }//for impares
                     System.out.println("\n");
                     break;
                 }//fin case 1
@@ -62,58 +68,61 @@ public class EjerciciosForYSwitch_CarlosFlores {
                 case 2:{
                     System.out.println("\n---Triángulos y más Triángulos");
                     int op_intern = 0;
-                    while(op_intern < 1 || op_intern > 3){
+                    do{
                         System.out.println("---SUBMENU");
                         System.out.println("1)Triangulo equilatero\n2)Triangulo rectangulo\n3)Salir");
                         op_intern = leer.nextInt();
-                        if(op_intern < 1 || op_intern > 3){
-                            System.out.println("Opcion no valida, intente de nuevo.");
-                        }
-                    }
-                    switch(op_intern){
-                        
-                        case 1:{
-                            System.out.println("---Triangulo equilatero");
-                            System.out.print("Ingrese la altura:");
-                            int alt = leer.nextInt();
-                            int colum = alt-1;
-                            int med = 1;
-                            for (int i = 0; i < alt; i++) {
-                                for (int j = 0; j < colum; j++) {
-                                    System.out.print(" ");
-                                    
+                        switch(op_intern){
+
+                            case 1:{
+                                System.out.println("---Triangulo equilatero");
+                                System.out.print("Ingrese la altura:");
+                                int alt = leer.nextInt();
+                                int colum = alt-1;
+                                int med = 1;
+                                for (int i = 0; i < alt; i++) {
+                                    for (int j = 0; j < colum; j++) {
+                                        System.out.print(" ");
+
+                                    }/*for que emprime espacios para hacer un triangulo 
+                                    invertido invisible */
+                                    colum--;
+                                    for (int j = 0; j < med; j++) {
+                                        System.out.print("X");
+                                    }//for que imprime el triangulo
+                                    med=med+2;
+                                    System.out.println();
                                 }
-                                colum--;
-                                for (int j = 0; j < med; j++) {
-                                    System.out.print("X");
-                                }
-                                med=med+2;
-                                System.out.println();
+                                break;
                             }
-                            break;
-                        }
-                        
-                        case 2:{
-                            System.out.println("---Triangulo rectangulo");
-                            System.out.print("Ingrese la altura:");
-                            int alt = leer.nextInt();
-                            int limit = 1;
-                            for (int i = 0; i < alt; i++) {
-                                for (int j = 0; j < limit; j++) {
-                                    System.out.print("X");
+
+                            case 2:{
+                                System.out.println("---Triangulo rectangulo");
+                                System.out.print("Ingrese la altura:");
+                                int alt = leer.nextInt();
+                                int limit = 1;
+                                for (int i = 0; i < alt; i++) {
+                                    for (int j = 0; j < limit; j++) {
+                                        System.out.print("X");
+                                    }
+                                    limit++;
+                                    System.out.println();
                                 }
-                                limit++;
-                                System.out.println();
+                                break;
                             }
-                            break;
+
+                            case 3:{
+                                System.out.println("Salio del submenu, nos vemos");
+                                break;
+                            }
+                            
+                            default:{
+                                System.out.println("Opcion no valiada, intente de nuevo");
+                                break;
+                            }
+
                         }
-                        
-                        case 3:{
-                            System.out.println("Salio del submenu, nos vemos");
-                            break;
-                        }
-                        
-                    }
+                    }while(op_intern != 3);
                     break;
                 }//fin case 2
                 
@@ -142,8 +151,6 @@ public class EjerciciosForYSwitch_CarlosFlores {
                             var = false;
                         }
                     }
-                    System.out.println(no_esp);
-                    System.out.println(veri);
                     if(var){
                         System.out.println("La palabra/oracion es palíndroma.");
                     }else{
@@ -170,7 +177,7 @@ public class EjerciciosForYSwitch_CarlosFlores {
                                 while(marg>0){
                                     resp += cod.charAt(i);
                                     marg--;
-                                }
+                                }//String acumulador
                             }else{
                                 System.out.println("Porfavor ingrese el codigo segun el formato, \nletra minuscula y numero entre 1 y 9.Intente de nuevo.");
                                 perm = false;
@@ -198,7 +205,7 @@ public class EjerciciosForYSwitch_CarlosFlores {
                 
             }//fin switch
 
-        }while(true);//fin while
+        }while(ok);//fin while
         
     }//fin main
     
