@@ -156,6 +156,33 @@ public class EjerciciosForYSwitch_CarlosFlores {
                 
                 case 4:{
                     System.out.println("\n---Codigos secretos");
+                    System.out.println("Ingrese su codigo(formato:letraNumeroLetraNumero): ");
+                    String cod = leer.next();
+                    String resp = "";
+                    boolean perm = true;
+                    for (int i = 0; i < cod.length(); i++) {
+                        if(i % 2 == 0 || i == 0){
+                            if(cod.charAt(i) < (char) 122 && cod.charAt(i) > (char) 97){
+                                int marg = cod.charAt(i+1)-48;
+                                if(marg == 0){
+                                    System.out.println("\nNo ingrese 0 ya que no imprime la letra, vuelva a intentar.");
+                                    perm = false;
+                                }
+                                while(marg>0){
+                                    resp += cod.charAt(i);
+                                    marg--;
+                                }
+                            }else{
+                                System.out.println("Porfavor ingrese el codigo segun el formato, \nletra minuscula y numero entre 1 y 9.Intente de nuevo.");
+                                perm = false;
+                                break;
+                            }
+                        }
+                    }
+                    if(perm){
+                        System.out.print(resp);
+                    }
+                    System.out.println("");
                     break;
                 }//fin case 4
                 
